@@ -6,6 +6,7 @@ CoordMode, Mouse, Screen
 #SingleInstance, force
 SetTitleMatchMode,2
 
+
 ; * Application: SuperMemo
 
 ; exp: Commonly-used window classes
@@ -18,12 +19,9 @@ GroupAdd, SuperMemo, ahk_class TRegistryForm; Template window
 
 ; exp: Execute code only if SuperMemo is focused
 
-#IfWinActive ahk_group SuperMemo
+#HotIf WinActive("ahk_group SuperMemo")
 
-; sect 1: Apply templates to topics and items in SuperMemo 
-
-^Numpad0:: ; CTRL + 0
-^0::set_template(0)
+; sect 2: Apply templates to topics and items in SuperMemo 
 
 ^Numpad1:: ; CTRL + 1 
 ^1::set_template("Article")
@@ -43,68 +41,44 @@ GroupAdd, SuperMemo, ahk_class TRegistryForm; Template window
 ^Numpad6:: ; CTRL + 6
 ^6::set_template("Item_Plain Text_Image")
 
-; ^Numpad7:: ; CTRL + 7
-; ^7::setTemplate("Classic")
-
-; ^Numpad8:: ; CTRL + 8
-; ^8::setTemplate("Classic Picture")
-
-; ^Numpad9:: ; CTRL + 9
-; ^9::setTemplate("Classic Picture")
-
 
 set_template(type) {
 
-    send, {esc}
+    send, {Esc}
     send, ^+m
     send, %type%
-    send, {enter}
-    send, {esc}
+    send, {Enter}
+    send, {Esc}
 }
-return
 
 ; sect 2: Split article according to heading level 
 
-!Numpad0:: ; ALT + 0
-!0::split_article(0)
+; !Numpad1:: ; ALT + 1 
+; !1::split_article("<h1")
 
-!Numpad1:: ; ALT + 1 
-!1::split_article("Article")
+; !Numpad2:: ; ALT + 2
+; !2::split_article("<h2")
 
-!Numpad2:: ; ALT + 2
-!2::split_article("Article_Extract")
+; !Numpad3:: ; ALT + 3
+; !3::split_article("<h3")
 
-!Numpad3:: ; ALT + 3
-!3::split_article("Article_Extract + Image")
+; !Numpad4:: ; ALT + 4
+; !4::split_article("<h4")
 
-!Numpad4:: ; ALT + 4
-!4::split_article("Item_Plain Text")
+; !Numpad5:: ; ALT + 5
+; !5::split_article("<h5")
 
-!Numpad5:: ; ALT + 5
-!5::split_article("Item_Plain Text_Code")
-
-!Numpad6:: ; ALT + 6
-!6::split_article("Item_Plain Text_Image")
-
-; ^Numpad7:: ; CTRL + 7
-; ^7::setTemplate("Classic")
-
-; ^Numpad8:: ; CTRL + 8
-; ^8::setTemplate("Classic Picture")
-
-; ^Numpad9:: ; CTRL + 9
-; ^9::setTemplate("Classic Picture")
-
-
-setTemplate(type) {
-
-    send, {esc}
-    send, ^+m
-    send, %type%
-    send, {enter}
-    send, {esc}
+; split_article(type)
+^!Numpad1:: 
+{
+    send, ^{Enter}
+    send, "{Text}split"
+    send, {Enter}
+    ; If WinActive("ahk_class TChecksDlg")
+    ; {
+    ;     MsgBox, "window active"
+    ; }
 }
-return
 
 /*
 ^+!s::
@@ -139,3 +113,8 @@ Send {Space}
 Send {Down}
 Send {Space}
 */
+
+
+; IsChecked := ControlGetChecked(Control , WinTitle, WinText, ExcludeTitle, ExcludeText)
+
+
