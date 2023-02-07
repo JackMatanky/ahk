@@ -1,5 +1,4 @@
 ; #Warn  ; Enable warnings to assist with detecting common errors.
-SetWorkingDir %A_ScriptDir%    ; Ensures a consistent starting directory.
 CoordMode "Mouse", "Screen"
 #SingleInstance    ; allows only a single instance of a script to be running, so that running a script that is already running makes the new instance replace the old instance automatically.
 
