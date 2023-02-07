@@ -1,8 +1,7 @@
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SetWorkingDir %A_ScriptDir%    ; Ensures a consistent starting directory.
 CoordMode "Mouse", "Screen"
-#SingleInstance Force
-SetTitleMatchMode 2
+#SingleInstance    ; allows only a single instance of a script to be running, so that running a script that is already running makes the new instance replace the old instance automatically.
 
 ; * Application: SuperMemo
 
@@ -21,29 +20,33 @@ GroupAdd "SuperMemo" "ahk_class TRegistryForm"    ; Template window
 ; exp: Apply templates to topics and items in SuperMemo
 
 ^Numpad1::    ; CTRL + 1
-^1:: set_template("Article")
+^1:: apply_template("Article")
 
 ^Numpad2::    ; CTRL + 2
-^2:: set_template("Article_Extract")
+^2:: apply_template("Article_Extract")
 
 ^Numpad3::    ; CTRL + 3
-^3:: set_template("Article_Extract + Image")
+^3:: apply_template("Article_Extract + Image")
 
 ^Numpad4::    ; CTRL + 4
-^4:: set_template("Item_Plain Text")
+^4:: apply_template("Item_Plain Text")
 
 ^Numpad5::    ; CTRL + 5
-^5:: set_template("Item_Plain Text_Code")
+^5:: apply_template("Item_Plain Text_Code")
 
 ^Numpad6::    ; CTRL + 6
-^6:: set_template("Item_Plain Text_Image")
+^6:: apply_template("Item_Plain Text_Image")
 
 
-set_template(type) {
-
-    SendInput { Escape }
-    send "^+m"
-    send type
-    send { Enter }
-    send { Escape }
+apply_template(type) {
+    ; Press Esc to exit any active input fields
+    SendInput "{Escape}"
+    ; Press Ctrl + Shift + M to open the template selection menu
+    Send "{Ctrl Down}{Shift Down}m{Ctrl Up}{Shift Up}"
+    ; Send the desired template name
+    Send %type%
+    ; Press Enter to apply the template
+    Send "{Enter}"
+    ; Press Esc to exit the template selection menu
+    Send "{Escape}"
 }
