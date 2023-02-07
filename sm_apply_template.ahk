@@ -6,11 +6,11 @@ CoordMode "Mouse", "Screen"
 
 ; exp: Commonly-used window classes
 
-GroupAdd "SuperMemo" "ahk_class TBrowser"    ;Browser
-GroupAdd "SuperMemo" "ahk_class TContents"    ;Content Window (Knowledge Tree)
-GroupAdd "SuperMemo" "ahk_class TElWind"    ;Element window
-GroupAdd "SuperMemo" "ahk_class TSMMain"    ;Toolbar
-GroupAdd "SuperMemo" "ahk_class TRegistryForm"    ; Template window
+GroupAdd "SuperMemo", "ahk_class TBrowser"    ;Browser
+GroupAdd "SuperMemo", "ahk_class TContents"    ;Content Window (Knowledge Tree)
+GroupAdd "SuperMemo", "ahk_class TElWind"    ;Element window
+GroupAdd "SuperMemo", "ahk_class TSMMain"    ;Toolbar
+GroupAdd "SuperMemo", "ahk_class TRegistryForm"    ; Template window
 
 ; exp: Execute code only if SuperMemo is focused
 
@@ -43,7 +43,7 @@ apply_template(type) {
     ; Press Ctrl + Shift + M to open the template selection menu
     Send "{Ctrl Down}{Shift Down}m{Ctrl Up}{Shift Up}"
     ; Send the desired template name
-    Send %type%
+    Send "%type%"
     ; Press Enter to apply the template
     Send "{Enter}"
     ; Press Esc to exit the template selection menu
