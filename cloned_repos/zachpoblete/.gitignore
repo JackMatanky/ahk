@@ -1,0 +1,6 @@
+.vscode
+*.code-workspace
+joystick-test.exe
+test.ahk
+test-when-testing-multiple.ahk
+versions

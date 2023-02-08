@@ -12,7 +12,6 @@
 ; sect: General
 :?*:\func::⨍    ; function
 :?*:\infty::∞    ; infinity
-:?*:\propto::∝    ; proportional to
 :?*:\sqrt::√    ; square root
 :?*:\sqrtc::∛    ; cube root
 :?*:\sqrtq::∜    ; quad root
@@ -41,6 +40,7 @@
 :?*:\equiv::≡    ; Identity, or equivalence
 :?*:\neqv::≢    ; Non-identity, or non-equivalence
 :?*:\approx::≈    ; approximation
+:?*:\propto::∝    ; proportionality
 :?*:\gt::>    ; greater than
 :?*:\ge::≥    ; greater than or equal to
 :?*:\lt::<    ; less than
@@ -172,4 +172,4 @@
 :?*:\nparallel::∦    ; Not parallel
 :?*:\perp::⟂    ; Perpindicular (orthogonality)
 
-½⅓¼⅕⅙⅐⅛⅑⅒⅔⅖¾⅗⅜⅘⅝
+; ½⅓¼⅕⅙⅐⅛⅑⅒⅔⅖¾⅗⅜⅘⅝

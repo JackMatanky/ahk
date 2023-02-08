@@ -8,6 +8,10 @@
 ;   ?  = The hotstring will be triggered even when it's inside another word.
 ;   b0 = Automatic backspacing is *not* done to erase the trigger string.
 
+;=============================================================================
+; sect: astro characters
+;=============================================================================
+
 :?*:\astrosun::☉
 :?*:\astromoon::☽
 :?*:\astromercury::☿
@@ -28,6 +32,10 @@
 :?*:\astrochiron::⚷
 :?*:\astronodeasc::☊
 :?*:\astronodedesc::☋
+
+;=============================================================================
+; sect: zodiac characters
+;=============================================================================
 
 :?*:\zodaries::♈
 :?*:\zodtaurus::♉
