@@ -1,4 +1,4 @@
-#Include "\autohotkey\lib\default_settings.ahk"
+#Include "%A_ScriptDir%\lib\default_settings.ahk"
 
 ; * Application: SuperMemo
 

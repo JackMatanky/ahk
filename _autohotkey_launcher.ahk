@@ -1,5 +1,5 @@
 ﻿; #Warn  ; Enable warnings to assist with detecting common errors.
-#Requires AutoHotkey v2
+#Requires AutoHotkey v2.0.2
 
 ; sect: General scripts
 #Include <default_settings>
